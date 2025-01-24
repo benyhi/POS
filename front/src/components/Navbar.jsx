@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {
+import { 
   Drawer,
   List,
   ListItem,
@@ -15,19 +15,62 @@ import {
   ThemeProvider,
   Icon,
 } from '@mui/material';
+import { Link } from 'react-router-dom';
 import theme from '../utils/theme';
+import Menu from '../assets/icons/menu_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg';
+import BackArrow from '../assets/icons/arrow_back_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg';
+import Home from '../assets/icons/home_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
+import Sale from '../assets/icons/paid_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
+import Inventory from '../assets/icons/inventory_2_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
+import Movements from '../assets/icons/list_alt_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
+import Notifications from '../assets/icons/notifications_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
+import Users from '../assets/icons/group_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
+import Settings from '../assets/icons/settings_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
+import Help from '../assets/icons/help_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
 
-import Menu from '../assets/icons/menu_24dp_FFFFFF_FILL0_wght200_GRAD0_opsz24.svg';
-import BackArrow from '../assets/icons/arrow_back_24dp_FFFFFF_FILL0_wght200_GRAD0_opsz24.svg';
-import Home from '../assets/icons/home_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg';
-import Inventory from '../assets/icons/inventory_2_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg';
-import History from '../assets/icons/receipt_long_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg';
-import Notificatios from '../assets/icons/notifications_24dp_000000_FILL0_wght200_GRAD0_opsz24.svg';
-import Sale from '../assets/icons/point_of_sale_32dp_000000_FILL0_wght200_GRAD0_opsz40.svg';
+const itemsTop = [
+  {id: 1, icon: Home, text: 'Inicio', path: '/'},
+  {id: 2, icon: Sale, text: 'Vender', path: '/sale'},
+  {id: 3, icon: Inventory, text: 'Inventario',  path: '/inventory'},
+  {id: 4, icon: Movements, text: 'Movimientos', path: '/movements'},
+  {id: 5, icon: Notifications, text: 'Notificaciones', path: '/notifications'},
+  {id: 6, icon: Users, text: 'Usuarios', path: '/users'},
+]
 
-const drawerWidth = 240;
+const itemsBottom = [
+  {id: 1, icon: Settings, text: 'Configuración', path: '/settings'},
+  {id: 2, icon: Help, text: 'Ayuda', path: '/help'},
+]
 
-export default function ResponsiveNavbar() {
+const drawerWidth = 200;
+
+const DrawerItem = ({ icon, text, path, open }) => (
+  <ListItem disablePadding>
+    <ListItemButton 
+      component={Link}
+      to={path}
+      sx={{
+        padding: '10px'
+      }}
+    >
+      <ListItemIcon
+        sx={{
+          minWidth: '40px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }} 
+      >
+        <img src={icon} alt="icon" style={{ width: '32px', height: '32px'}}/>
+      </ListItemIcon>
+      {open && <ListItemText primary={text} style={{ marginLeft: '10px'}} />}
+    </ListItemButton>
+  </ListItem>
+);
+
+
+export default function Navbar() {
+  
   const [open, setOpen] = useState(false);
 
   const toggleDrawer = () => {
@@ -36,117 +79,65 @@ export default function ResponsiveNavbar() {
 
   return (
     <ThemeProvider theme={theme}>
-        <Box sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex' }}>
         <CssBaseline />
         {/* Top AppBar */}
         <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-            <Toolbar>
+          <Toolbar>
             <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                edge="start"
-                onClick={toggleDrawer}
-                sx={{ mr: 2, mb: 1 }}
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={toggleDrawer}
+              sx={{ mr: 2, mb: 1}}
             >
-                <Icon>
-                    <img src={ open ? BackArrow : Menu } alt="menu" style={{ width: '32px', height: '32px' }} />
-                </Icon>
+              <Icon>
+                <img src={open ? BackArrow : Menu} alt="menu" style={{ width: '28px', height: '28px' }} />
+              </Icon>
             </IconButton>
-            <Typography variant="h6"
-                noWrap
-                component="div"
-                sx={{ fontFamily: 'Poppins' , fontWeight: 500 }}
-                > 
-                Punto de Venta 
+            <Typography variant="h6" noWrap component="div" sx={{ fontFamily: 'Poppins', fontWeight: 500 }}>
+              Punto de Venta
             </Typography>
-            </Toolbar>
+          </Toolbar>
         </AppBar>
 
         {/* Side Drawer */}
         <Drawer
-            variant="permanent"
-            open={open}
-            sx={{
+          variant="permanent"
+          open={open}
+          sx={{
             width: open ? drawerWidth : 60,
             flexShrink: 0,
             '& .MuiDrawer-paper': {
-                width: open ? drawerWidth : 60,
-                transition: 'width 0.3s',
-                overflowX: 'hidden',
+              width: open ? drawerWidth : 60,
+              transition: 'width 0.3s',
+              overflowX: 'hidden',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
             },
-            }}
+          }}
         >
-            <Toolbar />
+          {/* Top Drawer Items */}
+          <Box
+            sx={{ marginTop: '56px' }}
+          >
             <List>
-            <ListItem disablePadding>
-                <ListItemButton>
-                <ListItemIcon>
-                    <Icon>
-                        <img src={Home} alt="home" style={{ width: '28px', height: '28px' }} />
-                    </Icon>    
-                </ListItemIcon>
-                {open && <ListItemText primary="Inicio" />}
-                </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-                <ListItemButton>
-                <ListItemIcon>
-                    <Icon>
-                        <img src={Inventory} alt="invetory" style={{ width: '28px', height: '28px' }} />
-                    </Icon>
-                </ListItemIcon>
-                {open && <ListItemText primary="Inventario" />}
-                </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-                <ListItemButton>
-                <ListItemIcon>
-                <Icon>
-                        <img src={History} alt="history" style={{ width: '28px', height: '28px' }} />
-                    </Icon>
-                </ListItemIcon>
-                {open && <ListItemText primary="Moviminetos" />}
-                </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-                <ListItemButton>
-                <ListItemIcon>
-                    <Icon>
-                        <img src={Notificatios} alt="notifications" style={{ width: '28px', height: '28px' }} />
-                    </Icon>
-                </ListItemIcon>
-                {open && <ListItemText primary="Notificaciones" />}
-                </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-                <ListItemButton>
-                <ListItemIcon>
-                    <Icon>
-                        <img src={Sale} alt="sale" style={{ width: '28px', height: '28px' }} />
-                    </Icon>
-                </ListItemIcon>
-                {open && <ListItemText primary="Vender" />}
-                </ListItemButton>
-            </ListItem>
+              {itemsTop.map((item) => (
+                <DrawerItem key={item.id} icon={item.icon} text={item.text} open={open} />
+              ))}
             </List>
+          </Box>
+          {/* Bottom Drawer Items */}
+          <Box>
+            <List>
+              {itemsBottom.map((item) => (
+                <DrawerItem key={item.id} icon={item.icon} text={item.text} open={open} />
+              ))}
+            </List>
+          </Box>
         </Drawer>
-
-        {/* Main Content */}
-        <Box
-            component="main"
-            sx={{
-            flexGrow: 1,
-            p: 3,
-            marginLeft: open ? drawerWidth : 60,
-            transition: 'margin-left 0.3s',
-            }}
-        >
-            <Toolbar />
-            <Typography paragraph>
-            Aquí está el contenido principal de la aplicación.
-            </Typography>
-        </Box>
-        </Box>
+      </Box>
     </ThemeProvider>
   );
 }
