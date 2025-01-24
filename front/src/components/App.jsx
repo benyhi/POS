@@ -10,6 +10,7 @@ import Notifications from '../views/Notifications';
 import Users from '../views/Users';
 import Settings from '../views/Settings';
 import Help from '../views/Help';
+import Reports from '../views/Reports';
 
 export default function App() {
 
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="/movements" element={<Movements />} />
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/users" element={<Users />} />
+          <Route path="/reports" element={<Reports />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/help" element={<Help />} />
         </Routes>

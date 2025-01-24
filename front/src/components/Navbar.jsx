@@ -21,12 +21,13 @@ import Menu from '../assets/icons/menu_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.sv
 import BackArrow from '../assets/icons/arrow_back_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg';
 import Home from '../assets/icons/home_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
 import Sale from '../assets/icons/paid_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
-import Inventory from '../assets/icons/inventory_2_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
+import Inventory from '../assets/icons/inventory_2_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';``
 import Movements from '../assets/icons/list_alt_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
 import Notifications from '../assets/icons/notifications_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
 import Users from '../assets/icons/group_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
 import Settings from '../assets/icons/settings_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
 import Help from '../assets/icons/help_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
+import Reports from '../assets/icons/partner_reports_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
 
 const itemsTop = [
   {id: 1, icon: Home, text: 'Inicio', path: '/'},
@@ -35,6 +36,7 @@ const itemsTop = [
   {id: 4, icon: Movements, text: 'Movimientos', path: '/movements'},
   {id: 5, icon: Notifications, text: 'Notificaciones', path: '/notifications'},
   {id: 6, icon: Users, text: 'Usuarios', path: '/users'},
+  {id: 7, icon: Reports, text: 'Reportes', path: '/reports'},
 ]
 
 const itemsBottom = [
@@ -124,7 +126,7 @@ export default function Navbar() {
           >
             <List>
               {itemsTop.map((item) => (
-                <DrawerItem key={item.id} icon={item.icon} text={item.text} open={open} />
+                <DrawerItem key={item.id} icon={item.icon} text={item.text} path={item.path} open={open} />
               ))}
             </List>
           </Box>
@@ -132,7 +134,7 @@ export default function Navbar() {
           <Box>
             <List>
               {itemsBottom.map((item) => (
-                <DrawerItem key={item.id} icon={item.icon} text={item.text} open={open} />
+                <DrawerItem key={item.id} icon={item.icon} text={item.text} path={item.path} open={open} />
               ))}
             </List>
           </Box>
