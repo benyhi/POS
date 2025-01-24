@@ -12,12 +12,22 @@ import Settings from '../views/Settings';
 import Help from '../views/Help';
 import Reports from '../views/Reports';
 
+import { useNavbarStore } from '../store';
+
 export default function App() {
+  const { isNavbarOpen, drawerWidth } = useNavbarStore();
 
   return (
     <Router>
       <Navbar />
-      <Box sx={{ marginLeft: '60px', marginTop: '64px', padding: '20px' }}>
+      <Box 
+        sx={{ 
+          marginLeft: isNavbarOpen ? `${drawerWidth}px` : '60px',
+          marginTop: '64px',
+          padding: '20px',
+          transition: 'margin-left 0.3s',
+        }}
+      >
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sale" element={<Sale />} />

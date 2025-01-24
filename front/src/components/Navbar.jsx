@@ -16,6 +16,7 @@ import {
   Icon,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { useNavbarStore } from '../store';
 import theme from '../utils/theme';
 import Menu from '../assets/icons/menu_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg';
 import BackArrow from '../assets/icons/arrow_back_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg';
@@ -44,8 +45,6 @@ const itemsBottom = [
   {id: 2, icon: Help, text: 'Ayuda', path: '/help'},
 ]
 
-const drawerWidth = 200;
-
 const DrawerItem = ({ icon, text, path, open }) => (
   <ListItem disablePadding>
     <ListItemButton 
@@ -63,7 +62,7 @@ const DrawerItem = ({ icon, text, path, open }) => (
           alignItems: 'center',
         }} 
       >
-        <img src={icon} alt="icon" style={{ width: '32px', height: '32px'}}/>
+        <img src={icon} alt="icon" style={{ width: '28px', height: '28px'}}/>
       </ListItemIcon>
       {open && <ListItemText primary={text} style={{ marginLeft: '10px'}} />}
     </ListItemButton>
@@ -73,11 +72,7 @@ const DrawerItem = ({ icon, text, path, open }) => (
 
 export default function Navbar() {
   
-  const [open, setOpen] = useState(false);
-
-  const toggleDrawer = () => {
-    setOpen(!open);
-  };
+  const { isNavbarOpen, drawerWidth, toggleNavbar } = useNavbarStore();
 
   return (
     <ThemeProvider theme={theme}>
@@ -90,11 +85,11 @@ export default function Navbar() {
               color="inherit"
               aria-label="open drawer"
               edge="start"
-              onClick={toggleDrawer}
+              onClick={toggleNavbar}
               sx={{ mr: 2, mb: 1}}
             >
               <Icon>
-                <img src={open ? BackArrow : Menu} alt="menu" style={{ width: '28px', height: '28px' }} />
+                <img src={isNavbarOpen ? BackArrow : Menu} alt="menu" style={{ width: '28px', height: '28px' }} />
               </Icon>
             </IconButton>
             <Typography variant="h6" noWrap component="div" sx={{ fontFamily: 'Poppins', fontWeight: 500 }}>
@@ -106,12 +101,12 @@ export default function Navbar() {
         {/* Side Drawer */}
         <Drawer
           variant="permanent"
-          open={open}
+          open={isNavbarOpen}
           sx={{
-            width: open ? drawerWidth : 60,
+            width: isNavbarOpen ? drawerWidth : 60,
             flexShrink: 0,
             '& .MuiDrawer-paper': {
-              width: open ? drawerWidth : 60,
+              width: isNavbarOpen ? drawerWidth : 60,
               transition: 'width 0.3s',
               overflowX: 'hidden',
               display: 'flex',
@@ -126,7 +121,7 @@ export default function Navbar() {
           >
             <List>
               {itemsTop.map((item) => (
-                <DrawerItem key={item.id} icon={item.icon} text={item.text} path={item.path} open={open} />
+                <DrawerItem key={item.id} icon={item.icon} text={item.text} path={item.path} open={isNavbarOpen} />
               ))}
             </List>
           </Box>
@@ -134,7 +129,7 @@ export default function Navbar() {
           <Box>
             <List>
               {itemsBottom.map((item) => (
-                <DrawerItem key={item.id} icon={item.icon} text={item.text} path={item.path} open={open} />
+                <DrawerItem key={item.id} icon={item.icon} text={item.text} path={item.path} open={isNavbarOpen} />
               ))}
             </List>
           </Box>
