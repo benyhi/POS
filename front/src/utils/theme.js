@@ -10,7 +10,13 @@ const theme = createTheme({
   },
   palette: {
     primary: {
-      main: '#1976d2',  // Color primario
+      main: '#1976d2',  // Primary Color
+      text: '#6C757D',  // Text Color
+      cta:  '#007BFF',
+      success: '#28a745',
+      warning: '#ffc107',
+      danger: '#dc3545',
+      backkground: '#F5F5F5',
     },
     secondary: {
       main: '#ffffff',  // Color secundario
