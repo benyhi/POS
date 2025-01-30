@@ -18,13 +18,16 @@ from "@mui/material";
 import Close from "../assets/icons/close_24dp_DC3545_FILL1_wght400_GRAD0_opsz24.svg"
 import theme from "../utils/theme";
 import DeleteIcon from "@mui/icons-material/Delete";
+import AddIcon from "../assets/icons/add_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg"
+import SubstractIcon from "../assets/icons/remove_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg"
 
 export default function Sale() {
+  // Local States
   const [open, setOpen] = useState(false);
   const [amount, setAmount] = useState("");
-
   const [cart, setCart] = useState([]);
 
+  //Provisional
   const items = [
     { id: 1, name: "Producto Uno", quantity: 3, price: 7100, image: "../assets/images/coca_lata.png" },
     { id: 2, name: "Producto Dos", quantity: 1, price: 4300, image: "../assets/images/coca_lata.png" },
@@ -48,6 +51,7 @@ export default function Sale() {
     { id: 20, name: "Producto Veinte", quantity: 20, price: 23400, image: "../assets/images/coca_lata.png" },
   ];
   
+  //Provisional
   const options = [
     { name: "Publico General", firstLetter: "A" },
     { name: "Pedro Perez", firstLetter: "P" },
@@ -69,7 +73,24 @@ export default function Sale() {
     console.log(amount)
   }
 
-  const handleAdd = (product) => setCart((prevCart) => [...prevCart, product])
+  const handleAdd = (product) => {
+    setCart((prevCart) => {
+      const exist = prevCart.find((item) => item.id === product.id);
+      if (exist) {
+        return prevCart.map((item) =>
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        );
+      }
+      return [...prevCart, { ...product, quantity: 1 }];
+    });
+  };
+
+  const handleSubtract = (id) => {
+    setCart((prevCart) =>
+      prevCart.map((item) => item.id === id ? { ...item, quantity: item.quantity - 1 } : item)
+        .filter((item) => item.quantity > 0)
+    );
+  };
 
   const ProductCard = ({ item }) => (
     <Card 
@@ -80,7 +101,7 @@ export default function Sale() {
         display: "flex",
         flexDirection: "column",
 
-         }}>
+        }}>
       <CardMedia 
         component="img"
         alt="product"
@@ -164,8 +185,35 @@ export default function Sale() {
                 }}
               >
                 <Typography>
-                  {item.name} x{item.quantity}
+                  {item.name}
                 </Typography>
+                <Box>
+                  <IconButton onClick={ () => handleAdd(item) } onChange={ () => console.log(quantity)}>
+                    <Icon>
+                      <img src={AddIcon}/>
+                    </Icon>
+                  </IconButton>
+                  <TextField
+                    id="standar-basic"
+                    variant="standard"
+                    value={item.quantity}
+                    onChange={(e) => {
+                      const newQuantity = parseInt(e.target.value) || 0;
+                      setCart((prevCart) => 
+                        prevCart.map((p) =>
+                        p.id == item.id ? {...p, quantity: newQuantity}: p
+                    ))}}
+                    sx={{
+                      maxWidth: "30px"
+                    }}
+                  >
+                  </TextField>
+                  <IconButton onClick={ () => handleSubtract(item.id)}>
+                    <Icon>
+                      <img src={SubstractIcon}/>
+                    </Icon>
+                  </IconButton>
+                </Box>
                 <Typography>${item.quantity * item.price}</Typography>
                 <IconButton color="error" onClick={() => handleRemoveItem(item.id)}>
                   <DeleteIcon />
