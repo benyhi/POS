@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, Grid, TextField, Box, ThemeProvider } from "@mui/material";
-import theme from "../utils/theme";
+import theme from "../../utils/theme";
 
 export default function Calculator() {
   const [input, setInput] = useState("");
