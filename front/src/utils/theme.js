@@ -16,7 +16,7 @@ const theme = createTheme({
       success: '#28a745',
       warning: '#ffc107',
       danger: '#dc3545',
-      backkground: '#F5F5F5',
+      background: '#F5F5F5',
     },
     secondary: {
       main: '#ffffff',  // Color secundario
