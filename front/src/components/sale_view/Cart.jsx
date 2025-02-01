@@ -11,9 +11,18 @@ import Close from "../../assets/icons/close_24dp_666666_FILL1_wght400_GRAD0_opsz
 
 const Cart = () => { 
     const [openCalc, setOpenCalc] = useState(false);
-    const { emptyCart, cart, removeFromCart, subtractFromCart, addToCart } = useSaleStore();
+    const [openAddClient, setOpenAddClient] = useState(false);
     const [open, setOpen] = useState(false);
+    const { emptyCart, cart, removeFromCart, subtractFromCart, addToCart } = useSaleStore();
     const [amount, setAmount] = useState("");
+    const [ clientFormData, setClientFormData ] = useState({
+      name: "",
+      lastname: "",
+      cuit: "",
+      email: "",
+      tel: "",
+      adress: "",
+    });
     
     const options = [
         { name: "Publico General", firstLetter: "A" },
@@ -23,25 +32,38 @@ const Cart = () => {
         { name: "Luisa Martinez", firstLetter: "L" },
         { name: "Ana Hernandez", firstLetter: "A" },
         
-    ]
+    ];
 
     const total = cart.reduce((acc, item) => acc + item.quantity * item.price, 0);
 
+    const handleClientSubmit = (e) => {
+      e.preventDefault();
+      if (!clientFormData.name || !clientFormData.cuit || !clientFormData.tel ){
+        alert("Por favor, complete los campos obligatorios.");
+        return;
+      }else{
+        console.log(clientFormData);
+        setClientFormData({ name: "", lastname: "", email: "", cuit: "", tel: "", adress: ""})
+
+      }
+    };
+
+    const handleChange = (event) => {
+      const { name, value } = event.target;
+      setClientFormData((prev) => ({ ...prev, [name]: value }));
+    };
+
     const handleAmount = (e) => {
         setAmount(e.target.value);
-    }
+    };
 
     const handlePaymentMethod = (option) => {
         console.log(option)
-    }
+    };
 
     const handleSale = (products, total) => {
         console.log(products, total)
-    }
-
-    const handleAddClient = () => {
-        console.log('cliente')
-    }
+    };
 
     return(
     <ThemeProvider theme={theme}>
@@ -65,7 +87,7 @@ const Cart = () => {
               getOptionLabel={(option) => option.name}
               renderInput={(params) => <TextField {...params} label="Seleccionar Cliente" />}
             />
-            <Button sx={{p:0, maxHeight: '56px'}} onClick={()=> handleAddClient()}>
+            <Button sx={{p:0, maxHeight: '56px'}} onClick={()=> setOpenAddClient(true)}>
               <img src={AddIcon}/>
             </Button>
           </Box>
@@ -211,8 +233,8 @@ const Cart = () => {
 
     { /* Calc Modal */}
         <Modal
-        open={openCalc}
-        onClose={() => setOpenCalc(!openCalc)}
+        open={!!openCalc}
+        onClose={() => setOpenCalc(false)}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         >
@@ -225,7 +247,7 @@ const Cart = () => {
             boxShadow: 24,
             }}>
                 <IconButton
-                onClick={()=> setOpenCalc(!openCalc)}
+                onClick={()=> setOpenCalc(false)}
                 sx={{
                     position: "absolute",
                     top: 8, 
@@ -235,7 +257,85 @@ const Cart = () => {
                 </IconButton>
                 <Calculator />
             </Box>
-        </Modal>    
+        </Modal>   
+
+        { /* Add Client Modal */} 
+        <Modal
+          open={!!openAddClient}
+          onClose={() => setOpenAddClient(false)}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            bgcolor: theme.palette.primary.background,
+            boxShadow: 24,
+          }}>
+            <IconButton
+              onClick={()=> setOpenAddClient(false)}
+              sx={{
+              position: "absolute",
+              top: 8, 
+              right: 10 }}
+            >
+              <Icon> <img src={Close} /> </Icon>
+            </IconButton>
+            <Box
+              component="form"
+              onSubmit={handleClientSubmit}
+              sx={{ display: "flex", flexDirection: "column", gap: 2, padding:4, maxWidth: 400, margin: "auto" }}
+            >
+              <Typography variant="h6">Agregar Cliente</Typography> 
+              <TextField
+                    label="Nombre"
+                    name="name"
+                    value={clientFormData.name}
+                    onChange={handleChange}
+                    required
+                />
+                <TextField
+                    label="Apellido"
+                    name="lastname"
+                    value={clientFormData.lastname}
+                    onChange={handleChange}
+                    required
+                />
+                <TextField
+                    label="CUIT"
+                    name="cuit"
+                    value={clientFormData.cuit}
+                    onChange={handleChange}
+                    required
+                />
+                <TextField
+                    label="Correo Electrónico"
+                    name="email"
+                    type="email"
+                    value={clientFormData.email}
+                    onChange={handleChange}
+                    required
+                />
+                <TextField
+                    label="Teléfono"
+                    name="tel"
+                    value={clientFormData.tel}
+                    onChange={handleChange}
+                />
+                <TextField
+                    label="Dirección"
+                    name="adress"
+                    value={clientFormData.adress}
+                    onChange={handleChange}
+                />
+                <Button type="submit" variant="contained" color="primary">
+                    Agregar Cliente
+                </Button>
+            </Box>
+          </Box>
+        </Modal>
     </ ThemeProvider>
     )}
 

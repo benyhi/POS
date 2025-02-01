@@ -22,7 +22,7 @@ export default function Calculator() {
   return (
     <ThemeProvider theme={theme}>
         <Box sx={{ p: 2, border: "1px solid #ccc", borderRadius: 2, backgroundColor: theme.palette.primary.background, m: 6, maxWidth:"300px" }}>
-        <TextField fullWidth value={input} variant="outlined" sx={{ mb: 2, backgroundColor:theme.palette.primary.text }} />
+        <TextField fullWidth value={input} variant="outlined" sx={{ mb: 2, backgroundColor:'#bec2c6' }} />
         <Grid container spacing={1}>
             {["7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", ".", "=", "+"].map((item) => (
             <Grid item xs={3} key={item}>

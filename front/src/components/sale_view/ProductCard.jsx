@@ -25,7 +25,7 @@ const ProductCard = ({ item, onAddToCart }) => (
                 {item.name}
                 </Typography>
                 <Typography variant="body2" color={theme.palette.primary.text}>
-                Cod. {item.id}
+                Cod. {item.code}
                 </Typography>
                 <Typography variant="body2" color={theme.palette.primary.text}>
                 ${item.price}
