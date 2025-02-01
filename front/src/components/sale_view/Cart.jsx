@@ -23,7 +23,7 @@ const Cart = () => {
       tel: "",
       adress: "",
     });
-    
+
     const options = [
         { name: "Publico General", firstLetter: "A" },
         { name: "Pedro Perez", firstLetter: "P" },
