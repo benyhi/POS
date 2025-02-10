@@ -1,6 +1,5 @@
 import { Card, CardMedia, CardContent, CardActions, Typography, Button, ThemeProvider} from "@mui/material"
 import theme from "../../utils/theme"
-import useSaleStore from "../../store/saleStore"
 
 
 const ProductCard = ({ item, onAddToCart }) => (

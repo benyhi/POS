@@ -286,7 +286,7 @@ const Cart = () => {
             <Box
               component="form"
               onSubmit={handleClientSubmit}
-              sx={{ display: "flex", flexDirection: "column", gap: 2, padding:4, maxWidth: 400, margin: "auto" }}
+              sx={{ display: "flex", flexDirection: "column", gap: 2, padding:4, minWidth: 400, margin: "auto" }}
             >
               <Typography variant="h6">Agregar Cliente</Typography> 
               <TextField
