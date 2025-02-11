@@ -51,7 +51,7 @@ function AppLayout() {
   );
 }
 
-// Componente principal envuelto en Router
+// Primary component with Router
 export default function App() {
   return (
     <Router>

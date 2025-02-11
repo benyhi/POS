@@ -24,6 +24,8 @@ import Home from '../assets/icons/home_24dp_666666_FILL1_wght400_GRAD0_opsz24.sv
 import Sale from '../assets/icons/paid_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
 import Inventory from '../assets/icons/inventory_2_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';``
 import Movements from '../assets/icons/list_alt_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
+import Purchases from '../assets/icons/shopping_cart_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg'
+import Sales from '../assets/icons/payments_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg'
 import Notifications from '../assets/icons/notifications_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
 import Users from '../assets/icons/group_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
 import Settings from '../assets/icons/settings_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
@@ -35,9 +37,11 @@ const itemsTop = [
   {id: 2, icon: Sale, text: 'Vender', path: '/sale'},
   {id: 3, icon: Inventory, text: 'Inventario',  path: '/inventory'},
   {id: 4, icon: Movements, text: 'Movimientos', path: '/movements'},
-  {id: 5, icon: Notifications, text: 'Notificaciones', path: '/notifications'},
-  {id: 6, icon: Users, text: 'Usuarios', path: '/users'},
-  {id: 7, icon: Reports, text: 'Reportes', path: '/reports'},
+  {id: 5, icon: Purchases, text: 'Compras', path: '/purchases'},
+  {id: 6, icon: Sales, text: 'Ventas', path: '/sales'},
+  {id: 7, icon: Notifications, text: 'Notificaciones', path: '/notifications'},
+  {id: 8, icon: Users, text: 'Usuarios', path: '/users'},
+  {id: 9, icon: Reports, text: 'Reportes', path: '/reports'},
 ]
 
 const itemsBottom = [
@@ -51,7 +55,7 @@ const DrawerItem = ({ icon, text, path, open }) => (
       component={Link}
       to={path}
       sx={{
-        padding: '10px'
+        padding: '10px', height: '50px'
       }}
     >
       <ListItemIcon
@@ -59,7 +63,7 @@ const DrawerItem = ({ icon, text, path, open }) => (
           minWidth: '40px',
           display: 'flex',
           justifyContent: 'center',
-          alignItems: 'center',
+          alignItems: 'center'
         }} 
       >
         <img src={icon} alt="icon" style={{ width: '28px', height: '28px'}}/>
