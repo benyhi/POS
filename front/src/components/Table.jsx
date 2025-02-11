@@ -105,9 +105,18 @@ export default function CustomTable({columns, data, options}) {
       <Dialog open={open} onClose={() => setOpen(false)}>
         <DialogTitle>{selectedRow ? "Editar Producto" : "Agregar Producto"}</DialogTitle>
         <DialogContent>
-          <TextField label="Nombre" fullWidth margin="dense" value={formData.nombre} onChange={(e) => setFormData({ ...formData, nombre: e.target.value })} />
-          <TextField label="Precio" type="number" fullWidth margin="dense" value={formData.precio} onChange={(e) => setFormData({ ...formData, precio: e.target.value })} />
-          <TextField label="Stock" type="number" fullWidth margin="dense" value={formData.stock} onChange={(e) => setFormData({ ...formData, stock: e.target.value })} />
+          {columns
+          .filter(column => column.field !== "id")
+          .map(column => (
+            <TextField 
+              key={column.field.id}
+              label={column.field[0].toUpperCase() + column.field.slice(1)}
+              fullWidth
+              margin="dense"
+              value={formData[column.field] || ""}
+              onChange={(e) =>
+                setFormData({ ...formData, [column.field]: e.target.value })} />
+          ))}
         </DialogContent>
         <DialogActions>
           <Button onClick={handleSave} variant="contained">{selectedRow ? "Actualizar" : "Guardar"}</Button>
