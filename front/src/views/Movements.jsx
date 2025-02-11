@@ -17,10 +17,23 @@ const columns = [
   { field: "cantidad", headerName: "Stock", width: 100, type: "number" },
 ];
 
+const options = {
+  buttons:{
+    edit: false,
+    delete: false,
+    add: false,
+    import: false,
+    export: true
+  },
+  filter: true,
+  search: true,
+  checkbox: false
+}
+
 const Movements = () => {
   return (
     <Box>
-      <CustomTable columns={columns} data={initialRows}/>
+      <CustomTable columns={columns} data={initialRows} options={options}/>
     </Box>
   );
 };

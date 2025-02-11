@@ -11,13 +11,13 @@ import Filter from '../assets/icons/filter_alt_24dp_FFFFFF_FILL0_wght400_GRAD0_o
 
 import MenuFilter from './FilterMenu'
 
-export default function CustomTable({columns, data}) {
+export default function CustomTable({columns, data, options}) {
   const [rows, setRows] = useState(data);
   const [search, setSearch] = useState("");
   const [selectedRow, setSelectedRow] = useState(null);
   const [formData, setFormData] = useState({ id: "", nombre: "", precio: "", stock: "" });
   const [open, setOpen] = useState(false);
-  const [ filters, setFilters ] = useState([]);
+  const [filters, setFilters ] = useState([]);
 
   const handleApplyFilters = (selected) => {
     setFilters(selected);
@@ -58,15 +58,29 @@ export default function CustomTable({columns, data}) {
       {/* Controles arriba */}
       <Stack direction="row" mb={2} justifyContent={"space-between"}>
         <Box sx={{ display: "flex", gap: 1 }}>
-          <Button sx={{  fontFamily: 'Roboto'}} variant="contained" startIcon={<img src={Add} alt="add_icon" />} onClick={() => handleOpen()}>Agregar</Button>
-          <Button sx={{  fontFamily: 'Roboto'}} variant="contained" startIcon={<img src={Edit} alt="edit_icon" />} disabled={!selectedRow} onClick={() => handleOpen(selectedRow)}>Editar</Button>
-          <Button sx={{  fontFamily: 'Roboto'}} variant="contained" color="error" startIcon={<img src={Delete} alt="delete_icon" />} disabled={!selectedRow} onClick={handleDelete}>Eliminar</Button>
-          <Button sx={{  fontFamily: 'Roboto'}} variant="contained" startIcon={<img src={Upload} alt="upload_icon" />} >Importar</Button>
-          <Button sx={{  fontFamily: 'Roboto'}} variant="contained" startIcon={<img src={Download} alt="download_icon" />} >Exportar</Button>
+          {options?.buttons?.add && (
+            <Button sx={{  fontFamily: 'Roboto'}} variant="contained" startIcon={<img src={Add} alt="add_icon" />} onClick={() => handleOpen()}>Agregar</Button>
+          )}
+          {options?.buttons?.edit && (
+            <Button sx={{  fontFamily: 'Roboto'}} variant="contained" startIcon={<img src={Edit} alt="edit_icon" />} disabled={!selectedRow} onClick={() => handleOpen(selectedRow)}>Editar</Button>
+          )}
+          {options?.buttons?.delete && (
+            <Button sx={{  fontFamily: 'Roboto'}} variant="contained" color="error" startIcon={<img src={Delete} alt="delete_icon" />} disabled={!selectedRow} onClick={handleDelete}>Eliminar</Button>
+          )}
+          {options?.buttons?.import && (
+            <Button sx={{  fontFamily: 'Roboto'}} variant="contained" startIcon={<img src={Upload} alt="upload_icon" />} >Importar</Button>
+          )}
+          {options?.buttons?.export && (
+            <Button sx={{  fontFamily: 'Roboto'}} variant="contained" startIcon={<img src={Download} alt="download_icon" />} >Exportar</Button>
+          )}
         </Box>
         <Box sx={{ display: "flex", gap: 1 }}>
-          <MenuFilter onApplyFilters={handleApplyFilters}/>
-          <TextField sx={{  width: 300 }} fullWidth label="Buscar por nombre o codigo..." variant="outlined" size="small" onChange={(e) => setSearch(e.target.value)} />
+          {options?.filter && (
+            <MenuFilter onApplyFilters={handleApplyFilters}/>
+          )}
+          {options?.search && (
+            <TextField sx={{  width: 300 }} fullWidth label="Buscar por nombre o codigo..." variant="outlined" size="small" onChange={(e) => setSearch(e.target.value)} />
+          )}
         </Box>
       </Stack>
 
@@ -84,7 +98,7 @@ export default function CustomTable({columns, data}) {
           const selectedId = ids.length ? ids[0] : null;
           setSelectedRow(rows.find(row => row.id === selectedId) || null);
         }}
-        checkboxSelection
+        checkboxSelection={options?.checkbox}
       />
 
       {/* Modal */}

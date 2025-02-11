@@ -20,6 +20,19 @@ const columns = [
   { field: "stock", headerName: "Stock", width: 100, type: "number" },
 ];
 
+const options = {
+  buttons:{
+    edit: true,
+    delete: true,
+    add: true,
+    import: true,
+    export: true
+  },
+  filter: true,
+  search: true,
+  checkbox: true
+}
+
 const Inventory = () => {
   return (
     <ThemeProvider theme={theme}>
@@ -29,7 +42,7 @@ const Inventory = () => {
           <InfoCard title={"Productos con Bajo Stock"} value={3} icon={Inventory_ico_white} color={theme.palette.primary.warning}/>
         </Stack>
         <Box>
-        <CustomTable columns={columns} data={initialRows}/>
+        <CustomTable columns={columns} data={initialRows} options={options}/>
         </Box>
       </Box>
     </ThemeProvider>
