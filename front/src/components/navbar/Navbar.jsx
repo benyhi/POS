@@ -1,11 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { 
   Drawer,
   List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
   IconButton,
   Box,
   CssBaseline,
@@ -15,8 +11,8 @@ import {
   ThemeProvider,
   Icon,
 } from '@mui/material';
-import { Link } from 'react-router-dom';
 import { useNavbarStore } from '../../store';
+import DrawerItem from './DrawerItem';
 import theme from '../../utils/theme';
 import Menu from '../../assets/icons/menu_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg';
 import BackArrow from '../../assets/icons/arrow_back_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg';
@@ -36,43 +32,22 @@ const itemsTop = [
   {id: 1, icon: Home, text: 'Inicio', path: '/'},
   {id: 2, icon: Sale, text: 'Vender', path: '/sale'},
   {id: 3, icon: Inventory, text: 'Inventario',  path: '/inventory'},
-  {id: 4, icon: Movements, text: 'Movimientos', path: '/movements'},
-  {id: 5, icon: Purchases, text: 'Compras', path: '/purchases'},
-  {id: 6, icon: Sales, text: 'Ventas', path: '/sales'},
-  {id: 7, icon: Notifications, text: 'Notificaciones', path: '/notifications'},
-  {id: 8, icon: Users, text: 'Usuarios', path: '/users'},
-  {id: 9, icon: Reports, text: 'Reportes', path: '/reports'},
+  {id: 4, icon: Movements, text: 'Movimientos', path: '/movements',
+    items: 
+    [
+      {title: 'Compras', icon: Purchases, path: '/purchases'},
+      {title: 'Ventas', icon: Sales, path: '/sales'}
+    ]
+  },
+  {id: 5, icon: Notifications, text: 'Notificaciones', path: '/notifications'},
+  {id: 6, icon: Users, text: 'Usuarios', path: '/users'},
+  {id: 7, icon: Reports, text: 'Reportes', path: '/reports'},
 ]
 
 const itemsBottom = [
   {id: 1, icon: Settings, text: 'Configuración', path: '/settings'},
   {id: 2, icon: Help, text: 'Ayuda', path: '/help'},
 ]
-
-const DrawerItem = ({ icon, text, path, open }) => (
-  <ListItem disablePadding>
-    <ListItemButton 
-      component={Link}
-      to={path}
-      sx={{
-        padding: '10px', height: '50px'
-      }}
-    >
-      <ListItemIcon
-        sx={{
-          minWidth: '40px',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center'
-        }} 
-      >
-        <img src={icon} alt="icon" style={{ width: '28px', height: '28px'}}/>
-      </ListItemIcon>
-      {open && <ListItemText primary={text} style={{ marginLeft: '10px'}} />}
-    </ListItemButton>
-  </ListItem>
-);
-
 
 export default function Navbar() {
   
@@ -125,7 +100,7 @@ export default function Navbar() {
           >
             <List>
               {itemsTop.map((item) => (
-                <DrawerItem key={item.id} icon={item.icon} text={item.text} path={item.path} open={isNavbarOpen} />
+                <DrawerItem key={item.id} icon={item.icon} text={item.text} path={item.path} items={item.items} open={isNavbarOpen} />
               ))}
             </List>
           </Box>

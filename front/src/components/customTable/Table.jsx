@@ -1,15 +1,13 @@
 import { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { esES } from "@mui/x-data-grid/locales";
-import { TextField, Button, Box, Stack, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Icon } from "@mui/material";
+import { TextField, Button, Box, Stack, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
+import MenuFilter from './FilterMenu'
 import Add from '../../assets/icons/add_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg'
 import Edit from '../../assets/icons/edit_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg'
 import Delete from '../../assets/icons/delete_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg'
 import Upload from '../../assets/icons/upload_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg'
 import Download from '../../assets/icons/download_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg'
-import Filter from '../../assets/icons/filter_alt_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg'
-
-import MenuFilter from './FilterMenu'
 
 export default function CustomTable({columns, data, options}) {
   const [rows, setRows] = useState(data);
@@ -107,9 +105,9 @@ export default function CustomTable({columns, data, options}) {
         <DialogContent>
           {columns
           .filter(column => column.field !== "id")
-          .map(column => (
+          .map((column, index) => (
             <TextField 
-              key={column.field.id}
+              key={index}
               label={column.field[0].toUpperCase() + column.field.slice(1)}
               fullWidth
               margin="dense"
