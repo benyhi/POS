@@ -19,10 +19,10 @@ const initialRows = [
   
   const options = {
     buttons:{
-      edit: true,
-      delete: true,
+      edit: false,
+      delete: false,
       add: true,
-      import: true,
+      import: false,
       export: true
     },
     filter: true,
@@ -30,7 +30,7 @@ const initialRows = [
     checkbox: true
   }
   
-const Buys = () => {
+const Sales = () => {
   return (
     <ThemeProvider theme={theme}>
         <Box>
@@ -42,4 +42,4 @@ const Buys = () => {
   );
 };
 
-export default Buys;
+export default Sales;

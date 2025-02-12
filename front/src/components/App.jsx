@@ -6,6 +6,8 @@ import Home from '../views/Home';
 import Sale from '../views/Sale';
 import Inventory from '../views/Inventory';
 import Movements from '../views/Movements';
+import Purchases from '../views/Purchases';
+import Sales from '../views/Sales';
 import Notifications from '../views/Notifications';
 import Users from '../views/Users';
 import Settings from '../views/Settings';
@@ -39,6 +41,8 @@ function AppLayout() {
           <Route path="/sale" element={<Sale />} />
           <Route path="/inventory" element={<Inventory />} />
           <Route path="/movements" element={<Movements />} />
+          <Route path='/purchases' element={<Purchases />} />
+          <Route path='/sales' element={<Sales />} />
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/users" element={<Users />} />
           <Route path="/reports" element={<Reports />} />

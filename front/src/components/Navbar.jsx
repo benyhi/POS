@@ -22,7 +22,7 @@ import Menu from '../assets/icons/menu_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.sv
 import BackArrow from '../assets/icons/arrow_back_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg';
 import Home from '../assets/icons/home_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
 import Sale from '../assets/icons/paid_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
-import Inventory from '../assets/icons/inventory_2_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';``
+import Inventory from '../assets/icons/inventory_2_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
 import Movements from '../assets/icons/list_alt_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
 import Purchases from '../assets/icons/shopping_cart_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg'
 import Sales from '../assets/icons/payments_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg'
