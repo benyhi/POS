@@ -2,12 +2,12 @@ import { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { esES } from "@mui/x-data-grid/locales";
 import { TextField, Button, Box, Stack, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Icon } from "@mui/material";
-import Add from '../assets/icons/add_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg'
-import Edit from '../assets/icons/edit_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg'
-import Delete from '../assets/icons/delete_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg'
-import Upload from '../assets/icons/upload_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg'
-import Download from '../assets/icons/download_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg'
-import Filter from '../assets/icons/filter_alt_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg'
+import Add from '../../assets/icons/add_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg'
+import Edit from '../../assets/icons/edit_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg'
+import Delete from '../../assets/icons/delete_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg'
+import Upload from '../../assets/icons/upload_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg'
+import Download from '../../assets/icons/download_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg'
+import Filter from '../../assets/icons/filter_alt_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg'
 
 import MenuFilter from './FilterMenu'
 

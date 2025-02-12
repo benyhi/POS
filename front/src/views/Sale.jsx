@@ -1,6 +1,6 @@
 import { Box,ThemeProvider } from "@mui/material";
-import Cart from "../components/sale_view/Cart"
-import ProductList from "../components/sale_view/ProductList";
+import Cart from "../components/sale/Cart"
+import ProductList from "../components/sale/ProductList";
 import theme from "../utils/theme";
 
 

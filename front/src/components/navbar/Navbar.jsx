@@ -16,21 +16,21 @@ import {
   Icon,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { useNavbarStore } from '../store';
-import theme from '../utils/theme';
-import Menu from '../assets/icons/menu_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg';
-import BackArrow from '../assets/icons/arrow_back_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg';
-import Home from '../assets/icons/home_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
-import Sale from '../assets/icons/paid_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
-import Inventory from '../assets/icons/inventory_2_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
-import Movements from '../assets/icons/list_alt_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
-import Purchases from '../assets/icons/shopping_cart_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg'
-import Sales from '../assets/icons/payments_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg'
-import Notifications from '../assets/icons/notifications_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
-import Users from '../assets/icons/group_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
-import Settings from '../assets/icons/settings_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
-import Help from '../assets/icons/help_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
-import Reports from '../assets/icons/partner_reports_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
+import { useNavbarStore } from '../../store';
+import theme from '../../utils/theme';
+import Menu from '../../assets/icons/menu_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg';
+import BackArrow from '../../assets/icons/arrow_back_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg';
+import Home from '../../assets/icons/home_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
+import Sale from '../../assets/icons/paid_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
+import Inventory from '../../assets/icons/inventory_2_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
+import Movements from '../../assets/icons/list_alt_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
+import Purchases from '../../assets/icons/shopping_cart_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg'
+import Sales from '../../assets/icons/payments_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg'
+import Notifications from '../../assets/icons/notifications_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
+import Users from '../../assets/icons/group_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
+import Settings from '../../assets/icons/settings_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
+import Help from '../../assets/icons/help_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
+import Reports from '../../assets/icons/partner_reports_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
 
 const itemsTop = [
   {id: 1, icon: Home, text: 'Inicio', path: '/'},

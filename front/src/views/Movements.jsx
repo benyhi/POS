@@ -1,5 +1,5 @@
 import React from "react";
-import CustomTable from "../components/Table";
+import CustomTable from '../components/customTable/Table'
 import { Box } from "@mui/material";
 
 const initialRows = [

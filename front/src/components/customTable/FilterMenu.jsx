@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Menu, MenuItem, Checkbox, ListItemText, IconButton, Icon } from "@mui/material";
-import Filter from '../assets/icons/filter_alt_24dp_666666_FILL0_wght400_GRAD0_opsz24.svg'
+import Filter from '../../assets/icons/filter_alt_24dp_666666_FILL0_wght400_GRAD0_opsz24.svg'
 
 const filters = [
   { id: "precio", nombre: "Precio" },

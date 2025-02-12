@@ -1,6 +1,6 @@
 import React from "react";
-import CustomTable from '../components/Table'
-import InfoCard from "../components/InfoCard";
+import CustomTable from '../components/customTable/Table'
+import InfoCard from "../components/customTable/InfoCard";
 import theme from '../utils/theme'
 import { ThemeProvider, Box, Stack } from "@mui/material";
 import Inventory_ico from '../assets/icons/inventory_2_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg'

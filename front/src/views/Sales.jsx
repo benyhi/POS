@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, ThemeProvider } from '@mui/material'
-import CustomTable from '../components/Table'
+import CustomTable from '../components/customTable/Table'
 import theme from '../utils/theme'
 
 const initialRows = [

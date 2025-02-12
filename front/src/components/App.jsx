@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Box } from '@mui/material';
-import Navbar from '../components/Navbar';
+import Navbar from './navbar/Navbar';
 import Home from '../views/Home';
 import Sale from '../views/Sale';
 import Inventory from '../views/Inventory';
