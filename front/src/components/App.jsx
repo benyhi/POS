@@ -4,11 +4,13 @@ import { Box } from '@mui/material';
 import Navbar from './navbar/Navbar';
 import Home from '../views/Home';
 import Sale from '../views/Sale';
-import Inventory from '../views/Inventory';
+import Products from '../views/Products';
+import Categories from '../views/Categories'
 import Movements from '../views/Movements';
 import Purchases from '../views/Purchases';
 import Sales from '../views/Sales';
 import Notifications from '../views/Notifications';
+import Clients from '../views/Clients'
 import Users from '../views/Users';
 import Settings from '../views/Settings';
 import Help from '../views/Help';
@@ -39,11 +41,13 @@ function AppLayout() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sale" element={<Sale />} />
-          <Route path="/inventory" element={<Inventory />} />
+          <Route path="/products" element={<Products />} />
+          <Route path='/categories' element={<Categories />} />
           <Route path="/movements" element={<Movements />} />
           <Route path='/purchases' element={<Purchases />} />
           <Route path='/sales' element={<Sales />} />
           <Route path="/notifications" element={<Notifications />} />
+          <Route path='/clients' element={<Clients />} />
           <Route path="/users" element={<Users />} />
           <Route path="/reports" element={<Reports />} />
           <Route path="/settings" element={<Settings />} />

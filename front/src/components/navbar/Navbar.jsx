@@ -18,12 +18,15 @@ import Menu from '../../assets/icons/menu_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24
 import BackArrow from '../../assets/icons/arrow_back_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg';
 import Home from '../../assets/icons/home_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
 import Sale from '../../assets/icons/paid_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
-import Inventory from '../../assets/icons/inventory_2_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
+import Inventory from '../../assets/icons/inventory_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg'
+import ProductsIcon from '../../assets/icons/inventory_2_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
+import CategoryIcon from '../../assets/icons/category_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg'
 import Movements from '../../assets/icons/list_alt_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
 import Purchases from '../../assets/icons/shopping_cart_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg'
 import Sales from '../../assets/icons/payments_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg'
 import Notifications from '../../assets/icons/notifications_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
-import Users from '../../assets/icons/group_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
+import Users from '../../assets/icons/person_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg'
+import Clients from '../../assets/icons/groups_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
 import Settings from '../../assets/icons/settings_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
 import Help from '../../assets/icons/help_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
 import Reports from '../../assets/icons/partner_reports_24dp_666666_FILL1_wght400_GRAD0_opsz24.svg';
@@ -31,7 +34,13 @@ import Reports from '../../assets/icons/partner_reports_24dp_666666_FILL1_wght40
 const itemsTop = [
   {id: 1, icon: Home, text: 'Inicio', path: '/'},
   {id: 2, icon: Sale, text: 'Vender', path: '/sale'},
-  {id: 3, icon: Inventory, text: 'Inventario',  path: '/inventory'},
+  {id: 3, icon: Inventory, text: 'Inventario',  path: '/inventory',
+    items:
+    [
+      {title: 'Productos', icon: ProductsIcon, path: '/products'},
+      {title: 'Categorias', icon: CategoryIcon, path: '/categories'}
+    ]
+  },
   {id: 4, icon: Movements, text: 'Movimientos', path: '/movements',
     items: 
     [
@@ -39,9 +48,10 @@ const itemsTop = [
       {title: 'Ventas', icon: Sales, path: '/sales'}
     ]
   },
-  {id: 5, icon: Notifications, text: 'Notificaciones', path: '/notifications'},
+  {id: 5, icon: Clients, text: 'Clientes', path: '/clients'},
   {id: 6, icon: Users, text: 'Usuarios', path: '/users'},
-  {id: 7, icon: Reports, text: 'Reportes', path: '/reports'},
+  {id: 7, icon: Notifications, text: 'Notificaciones', path: '/notifications'},
+  {id: 8, icon: Reports, text: 'Reportes', path: '/reports'},
 ]
 
 const itemsBottom = [

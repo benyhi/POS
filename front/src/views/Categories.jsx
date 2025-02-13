@@ -33,12 +33,12 @@ const options = {
   checkbox: true
 }
 
-const Inventory = () => {
+const Categories = () => {
   return (
     <ThemeProvider theme={theme}>
       <Box>
         <Stack direction="row" ml={2} gap={2}>
-          <InfoCard title={"Productos en Stock"} value={200} icon={Inventory_ico} color={"#fff"}/>
+          <InfoCard title={"Categorias"} value={2} icon={Inventory_ico} color={"#fff"}/>
           <InfoCard title={"Productos con Bajo Stock"} value={3} icon={Inventory_ico_white} color={theme.palette.primary.warning}/>
         </Stack>
         <Box>
@@ -49,4 +49,4 @@ const Inventory = () => {
   );
 };
 
-export default Inventory;
+export default Categories;
