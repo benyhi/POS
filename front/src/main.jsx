@@ -1,6 +1,9 @@
+import React from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './components/App'
+import Router from './routes/Router'
 
 createRoot(document.getElementById('root')).render(
-    <App />
+    <React.StrictMode>
+        <Router />
+    </React.StrictMode>
 )
