@@ -1,0 +1,38 @@
+/* ROBOTO */
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 200; /* Light */
+  src: url('./Roboto-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 400; /* Regular */
+    src: url('./Roboto-Regular.ttf') format('truetype');
+  }
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 700; /* Bold */
+  src: url('Roboto-Bold.ttf') format('truetype');
+}
+
+/* POPPINS */
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 200; /* Light */
+  src: url('./Poppins-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 400; /* Regular */
+  src: url('./Poppins-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 700; /* Bold */
+  src: url('./Poppins-Bold.ttf') format('truetype');
+}
+  
